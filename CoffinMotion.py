@@ -34,7 +34,7 @@ class CoffinScheduler(object):
         self._is_active_weather = True
         self._is_active_time = True
 
-        owm = OWM('1751e90b69159f768490ae24139d8d3e')
+        owm = OWM('pffffffffffffft')
         self.weather_manager = owm.weather_manager()
         self.check_weather()
         self.isTimeActive()

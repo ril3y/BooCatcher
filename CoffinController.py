@@ -70,7 +70,7 @@ class CoffinController(object):
 
     def run(self):
         print("[#] Starting Boo Detection!")
-        self.led.set_strip_color((255,0,0))
+        self.led.set_strip_color((255,250,5))
         CoffinWebServer(__name__).run(host= '0.0.0.0')
         
 

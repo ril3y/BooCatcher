@@ -142,7 +142,8 @@ class CoffinMotion():
             pub.sendMessage('LED-MESSAGES', color=(255,0,0))
             
             if self.scheduler.isActive():
-                pub.sendMessage("SOUND-MESSAGES", files=["sounds/lidcreak.mp3","sounds/wickedmalelaugh1.mp3","sounds/nmh_scream1.mp3"])
+                pub.sendMessage("SOUND-MESSAGES", files=["wickedmalelaugh1.mp3"])
+                #pub.sendMessage("SOUND-MESSAGES", files=["sounds/lidcreak.mp3","sounds/wickedmalelaugh1.mp3","sounds/nmh_scream1.mp3"])
                 self.open_close_coffin()
             else:
                 #The system is inactive due to rain or timing

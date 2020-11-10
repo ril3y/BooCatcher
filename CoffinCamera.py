@@ -5,6 +5,7 @@ import time
 from picamera import PiCamera
 from pubsub import pub
 from threading import Thread
+import os
 
 class CoffinCamera(object):
     
@@ -21,7 +22,8 @@ class CoffinCamera(object):
         self.TAKE_PICTURE = False
         self.WRITE_VIDEO = False
         self.frames = 30
-
+        #self.IMAGE_DIR = os.path.basename(os.path.dirname(os.path.realpath(__file__))) + os.sep+ "images"
+        self.IMAGE_DIR = os.getcwd() +os.sep + "images"
         self.camera = PiCamera()
         self.camera.resolution = self.res
         self.camera.annotate_background = picamera.Color('black')
@@ -49,7 +51,7 @@ class CoffinCamera(object):
     def capture_image(self, filename=None):
          if not filename:
              filename = (time.ctime().replace(" ","-").replace(":","-")+".jpg")
-         self.camera.capture('static/images/' + filename)
+         self.camera.capture(self.IMAGE_DIR + filename)
          return filename
 
     # def stop_recording(self):

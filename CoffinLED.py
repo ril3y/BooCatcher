@@ -4,7 +4,7 @@ import neopixel
 import _thread
 import time
 from pubsub import pub
-
+from random import randint
 
 
 RED = (255,0,0)
@@ -22,6 +22,7 @@ class CoffinLED():
         self.pixel_numbers = 300
         self.pixels = neopixel.NeoPixel(board.D18, self.pixel_numbers)
         self.pixels.fill((0, 0, 0))
+        self.set_strip_color(self.get_random_color())
         pub.subscribe(self.led_listener, 'LED-MESSAGES')
 
     def led_listener(self, color, msg=None):
